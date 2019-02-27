@@ -1,0 +1,144 @@
+[System]
+Name='coursework1_base'
+Type='mamdani'
+Version=2.0
+NumInputs=7
+NumOutputs=2
+NumRules=58
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='DistanceLeft'
+Range=[0 500]
+NumMFs=3
+MF1='Close':'trapmf',[0 0 30 45]
+MF2='Far':'trapmf',[100 145 500 500]
+MF3='Near':'trapmf',[30 60 105 150]
+
+[Input2]
+Name='DistanceFront'
+Range=[0 500]
+NumMFs=3
+MF1='Close':'trapmf',[0 0 30 45]
+MF2='Far':'trapmf',[100 145 500 500]
+MF3='Near':'trapmf',[30 60 105 150]
+
+[Input3]
+Name='DistanceRight'
+Range=[0 500]
+NumMFs=3
+MF1='Near':'trapmf',[30 60 105 150]
+MF2='Far':'trapmf',[100 145 500 500]
+MF3='Close':'trapmf',[0 0 30 45]
+
+[Input4]
+Name='TargetDirection'
+Range=[-180 180]
+NumMFs=5
+MF1='BigLeft':'trapmf',[-180 -180 -135 -90]
+MF2='Centre':'trimf',[-45 0 45]
+MF3='BigRight':'trapmf',[90 135 180 180]
+MF4='SmallLeft':'trimf',[-135 -75 -10]
+MF5='SmallRight':'trimf',[10 75 135]
+
+[Input5]
+Name='TactileStateLeft'
+Range=[0 2]
+NumMFs=1
+MF1='Hit':'trimf',[1 1 1]
+
+[Input6]
+Name='TactileStateFront'
+Range=[0 2]
+NumMFs=1
+MF1='Hit':'trimf',[1 1 1]
+
+[Input7]
+Name='TactileStateRight'
+Range=[0 2]
+NumMFs=1
+MF1='Hit':'trimf',[1 1 1]
+
+[Output1]
+Name='VelocityLeft'
+Range=[-500 500]
+NumMFs=5
+MF1='BigNegative':'trapmf',[-500 -500 -250 -100]
+MF2='zero':'trimf',[-100 0 100]
+MF3='BigPositive':'trapmf',[100 250 500 500]
+MF4='SmallNegative':'trimf',[-200 -100 0]
+MF5='SmallPositive':'trimf',[0 100 200]
+
+[Output2]
+Name='VelocityRight'
+Range=[-500 500]
+NumMFs=5
+MF1='BigNegative':'trapmf',[-500 -500 -250 -100]
+MF2='zero':'trimf',[-100 0 100]
+MF3='BigPositive':'trapmf',[100 250 500 500]
+MF4='SmallNegative':'trimf',[-200 -100 0]
+MF5='SmallPositive':'trimf',[0 100 200]
+
+[Rules]
+0 0 0 0 0 0 1, 2 5 (1) : 1
+0 0 0 0 0 1 0, 2 5 (1) : 1
+0 0 0 0 0 1 1, 2 5 (1) : 1
+0 0 0 0 1 0 0, 5 2 (1) : 1
+0 0 0 0 1 0 0, 4 4 (1) : 1
+0 0 0 0 1 1 0, 5 2 (1) : 1
+0 0 0 0 1 1 1, 4 4 (1) : 1
+2 2 3 5 -1 -1 -1, 2 5 (1) : 1
+2 2 3 3 -1 -1 -1, 2 5 (1) : 1
+2 3 2 2 -1 -1 -1, 2 5 (1) : 1
+2 1 2 2 -1 -1 -1, 2 5 (1) : 1
+2 3 1 2 -1 -1 -1, 2 5 (1) : 1
+2 3 1 5 -1 -1 -1, 2 5 (1) : 1
+2 3 1 3 -1 -1 -1, 2 5 (1) : 1
+2 1 3 2 -1 -1 -1, 2 5 (1) : 1
+2 1 3 5 -1 -1 -1, 2 5 (1) : 1
+2 1 3 3 -1 -1 -1, 2 5 (1) : 1
+2 3 3 2 -1 -1 -1, 2 5 (1) : 1
+2 3 3 4 -1 -1 -1, 2 5 (1) : 1
+2 3 3 3 -1 -1 -1, 2 5 (1) : 1
+2 1 1 2 -1 -1 -1, 2 5 (1) : 1
+2 1 1 5 -1 -1 -1, 2 5 (1) : 1
+2 1 1 3 -1 -1 -1, 2 5 (1) : 1
+3 2 2 1 -1 -1 -1, 5 5 (1) : 1
+3 2 2 4 -1 -1 -1, 5 5 (1) : 1
+1 2 2 1 -1 -1 -1, 5 5 (1) : 1
+1 2 2 4 -1 -1 -1, 5 5 (1) : 1
+3 2 1 0 -1 -1 -1, 5 5 (1) : 1
+1 2 3 0 -1 -1 -1, 5 5 (1) : 1
+1 2 1 0 -1 -1 -1, 5 5 (1) : 1
+3 2 3 0 -1 -1 -1, 5 5 (1) : 1
+3 3 2 2 -1 -1 -1, 5 5 (1) : 1
+1 1 2 1 -1 -1 -1, 5 2 (1) : 1
+1 1 2 4 -1 -1 -1, 5 2 (1) : 1
+1 1 2 2 -1 -1 -1, 5 2 (1) : 1
+3 1 2 2 -1 -1 -1, 5 2 (1) : 1
+1 3 2 1 -1 -1 -1, 5 5 (1) : 1
+1 3 2 4 -1 -1 -1, 5 5 (1) : 1
+3 1 1 2 -1 -1 -1, 2 5 (1) : 1
+3 1 3 2 -1 -1 -1, 2 5 (1) : 1
+1 1 1 2 -1 -1 -1, 5 2 (1) : 1
+1 1 3 2 -1 -1 -1, 4 4 (1) : 1
+2 2 1 5 -1 -1 -1, 5 5 (1) : 1
+2 2 1 3 -1 -1 -1, 5 5 (1) : 1
+0 2 0 2 -1 -1 -1, 3 3 (1) : 1
+0 0 2 5 -1 -1 -1, 3 5 (1) : 1
+0 0 2 3 -1 -1 -1, 3 2 (1) : 1
+3 3 2 1 -1 -1 -1, 2 5 (1) : 1
+3 3 2 4 -1 -1 -1, 2 5 (1) : 1
+3 1 2 1 -1 -1 -1, 2 5 (1) : 1
+3 1 2 4 -1 -1 -1, 2 5 (1) : 1
+1 3 2 2 -1 -1 -1, 5 5 (1) : 1
+3 3 1 2 -1 -1 -1, 5 5 (1) : 1
+3 3 3 2 -1 -1 -1, 5 5 (1) : 1
+1 3 1 2 -1 -1 -1, 5 5 (1) : 1
+1 3 3 2 -1 -1 -1, 5 5 (1) : 1
+2 0 0 1 -1 -1 -1, 2 3 (1) : 1
+2 0 0 4 -1 -1 -1, 2 5 (1) : 1
